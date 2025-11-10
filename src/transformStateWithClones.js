@@ -26,8 +26,10 @@ const transformStateWithClones = (state, actions) => {
         break;
       }
 
+      // 👇 Aqui é o ponto alterado
       default: {
-        break;
+        // Tratamento explícito de erro para ações desconhecidas
+        throw new Error(`Ação desconhecida: ${action.type}`);
       }
     }
 
